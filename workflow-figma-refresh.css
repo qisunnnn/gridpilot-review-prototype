@@ -32,6 +32,13 @@ h1, h2, h3, button, input, select, textarea {
   font-family: Archivo, Arial, Helvetica, sans-serif;
 }
 
+header,
+body.intro-page header,
+html[data-theme=dark] header,
+html[data-theme=dark] body.intro-page header {
+  padding-inline: var(--yuko-page-gutter);
+}
+
 html:not([data-theme=dark]) header,
 html:not([data-theme=dark]) body.intro-page header {
   height: 70px;
