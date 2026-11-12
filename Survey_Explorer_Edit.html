@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GridPilot AI · Survey Explorer</title>
+  <link rel="preload" href="assets-edit/Archivo-latin-400-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('gridpilot-prototype-theme')==='dark'?'dark':'light'}catch{document.documentElement.dataset.theme='light'}</script>
+  <link rel="stylesheet" href="survey-explorer-edit.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="GridPilot AI · Back to prototype">
+      <img src="assets-edit/gridpilot-mark.png" alt="">
+      <span>GridPilot AI</span>
+    </a>
+    <span class="header-label">Survey explorer</span>
+    <div class="header-actions">
+      <a class="back-link" href="index.html">← Back to prototype</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Switch to dark mode" title="Turn on dark mode">
+        <span class="theme-toggle__icon" aria-hidden="true">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" focusable="false"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M20.2 15.3A8.5 8.5 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+    </div>
+  </header>
+  <main>
+    <p class="eyebrow">Three intake paths</p>
+    <h1>Fill in what you know.</h1>
+    <p class="intro-copy">Select, skip, or attach a file. Technical unknowns are welcome.</p>
+    <div id="survey-tabs" class="tabs" role="tablist" aria-label="Survey type"></div>
+    <div id="survey-panel" role="tabpanel" tabindex="0"></div>
+  </main>
+  <footer>
+    <span class="footer-note">Source survey fields and conditional rules are shown for design review. Modification is a proposed draft; no answers or files are submitted.</span>
+    <a href="index.html">Return to prototype ↗</a>
+  </footer>
+  <script src="survey-data-edit.js"></script>
+  <script src="survey-explorer-edit.js"></script>
+</body>
+</html>

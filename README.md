@@ -1,2 +1,7 @@
-# gridpilot-review-prototype
-Interactive GridPilot AI client and administrator review prototype
+# GridPilot AI prototype
+
+Interactive, static review prototype for the GridPilot client and administrator experience.
+
+Open `index.html` to view the prototype. The `Survey_Explorer_Edit.html` page contains the intake specification. All assets are included in this repository; no build step is required.
+
+This prototype does not call live AI services or send email. Demo progress and selected files are stored only in the visitor's browser.

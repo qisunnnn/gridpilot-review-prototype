@@ -1,0 +1,531 @@
+/* GridPilot workflow themed with the YukoHealth storefront's visual language.
+   Values mirror ../../yuko-design-system/src/tokens.css. This file is loaded
+   only by UI_UX_Prototype_AI_Guided_Yuko.html. */
+:root {
+  --yuko-canvas: #fafafa;
+  --yuko-surface: #f5f5f5;
+  --yuko-ink: #202020;
+  --yuko-muted: #666666;
+  --yuko-border: #dedede;
+  --yuko-control: #2020200d;
+  --yuko-glass: #ffffffb8;
+  --yuko-floating: #eeeeeef0;
+  --yuko-floating-hover: #e5e5e5f5;
+  --yuko-floating-active: #dededef5;
+  --yuko-button-default: #eeeeee;
+  --yuko-focus: #557993;
+  --yuko-gradient-start: #3676b8;
+  --yuko-gradient-middle: #8564b0;
+  --yuko-gradient-end: #ce607c;
+  --yuko-white: #ffffff;
+  --yuko-success: #456e5e;
+  --yuko-success-soft: #e0ebe5;
+  --yuko-warning: #826638;
+  --yuko-warning-soft: #f3ecdf;
+  --yuko-danger: #a04146;
+  --yuko-disabled: #a3a3a3;
+  --yuko-shadow: 0 4px 10px #2020200a, 0 14px 32px #2020200b, 0 28px 64px #2020200a;
+  --yuko-radius-card: 40px;
+  --yuko-radius-panel: 28px;
+  --yuko-radius-field: 16px;
+  --yuko-radius-pill: 999px;
+  --yuko-page-gutter: 32px;
+  --yuko-column-gap: 40px;
+
+  --ink: var(--yuko-ink);
+  --paper: var(--yuko-canvas);
+  --muted: var(--yuko-muted);
+  --line: var(--yuko-border);
+  --green: var(--yuko-success);
+  --amber: var(--yuko-warning);
+  --guide-surface: var(--yuko-canvas);
+  --guide-soft: var(--yuko-surface);
+  --guide-line: var(--yuko-border);
+  --guide-accent: var(--yuko-ink);
+  --surface: var(--yuko-surface);
+  --surface-raised: var(--yuko-white);
+  --surface-hover: var(--yuko-floating-hover);
+  --text-soft: var(--yuko-muted);
+  --border-strong: var(--yuko-focus);
+}
+
+html[data-theme=dark] {
+  --yuko-canvas: #1b1b1b;
+  --yuko-surface: #262626;
+  --yuko-ink: #f2f2f2;
+  --yuko-muted: #b6b6b6;
+  --yuko-border: #3d3d3d;
+  --yuko-control: #ffffff13;
+  --yuko-glass: #282828d9;
+  --yuko-floating: #2c2c2cf5;
+  --yuko-floating-hover: #383838;
+  --yuko-floating-active: #464646;
+  --yuko-button-default: #2c2c2c;
+  --yuko-focus: #9bb8cf;
+  --yuko-white: #303030;
+  --yuko-success: #9bc3ac;
+  --yuko-success-soft: #2c4035;
+  --yuko-warning: #dbc18e;
+  --yuko-warning-soft: #433829;
+  --yuko-danger: #e5a5aa;
+  --yuko-disabled: #777777;
+  --yuko-shadow: 0 5px 14px #0004, 0 20px 50px #0005;
+  --ink: var(--yuko-ink);
+  --paper: var(--yuko-canvas);
+  --muted: var(--yuko-muted);
+  --line: var(--yuko-border);
+  --green: var(--yuko-success);
+  --amber: var(--yuko-warning);
+  --guide-surface: var(--yuko-canvas);
+  --guide-soft: var(--yuko-surface);
+  --guide-line: var(--yuko-border);
+  --guide-accent: var(--yuko-ink);
+  --surface: var(--yuko-surface);
+  --surface-raised: var(--yuko-white);
+  --surface-hover: var(--yuko-floating-hover);
+  --text-soft: var(--yuko-muted);
+  --border-strong: var(--yuko-focus);
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  :root { --yuko-radius-card: 32px; --yuko-page-gutter: 24px; --yuko-column-gap: 24px; }
+}
+@media (max-width: 767px) {
+  :root { --yuko-radius-card: 28px; --yuko-page-gutter: 20px; --yuko-column-gap: 24px; }
+}
+@media (max-width: 359px) {
+  :root { --yuko-page-gutter: 16px; }
+}
+
+html { scroll-behavior: smooth; }
+body, html[data-theme=dark] body {
+  background: var(--yuko-canvas);
+  color: var(--yuko-ink);
+  font: 400 15px/1.6 Archivo, Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button, input, select, textarea { font-family: inherit; }
+button, input, select, textarea, summary { accent-color: var(--yuko-ink); }
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible,
+html[data-theme=dark] button:focus-visible,
+html[data-theme=dark] a:focus-visible,
+html[data-theme=dark] input:focus-visible,
+html[data-theme=dark] select:focus-visible,
+html[data-theme=dark] textarea:focus-visible {
+  outline: 2px solid var(--yuko-focus);
+  outline-offset: 3px;
+}
+a, .guide-thread a, html[data-theme=dark] a { color: var(--yuko-ink); text-underline-offset: .2em; }
+a:hover { color: var(--yuko-muted); }
+h1, h2, h3 { font-family: Archivo, Arial, Helvetica, sans-serif; }
+h1 { font-weight: 400; letter-spacing: -.05em; }
+h2 { font-weight: 400; letter-spacing: -.035em; }
+h3 { font-weight: 500; }
+.muted, .flow-caption { color: var(--yuko-muted); }
+::selection { background: #b6c8d5; color: #202020; }
+
+/* Header and navigation pills */
+header, body.intro-page header, html[data-theme=dark] header,
+html[data-theme=dark] body.intro-page header {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  min-height: 72px;
+  padding-inline: max(var(--yuko-page-gutter), calc((100% - 1376px) / 2));
+  border-bottom: 1px solid var(--yuko-control);
+  background: var(--yuko-canvas);
+}
+.brand, html[data-theme=dark] .brand {
+  gap: 9px;
+  color: var(--yuko-ink);
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
+.brand img { width: 24px; height: 24px; object-fit: contain; }
+.mode { gap: 6px; padding: 0; border: 0; }
+.mode button, .mode .active, html[data-theme=dark] .mode button,
+html[data-theme=dark] .mode .active {
+  min-height: 36px;
+  padding: 7px 15px;
+  border: 0;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-button-default);
+  color: var(--yuko-ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+.mode button:hover:not(:disabled), html[data-theme=dark] .mode button:hover:not(:disabled) { background: var(--yuko-floating-hover); }
+.mode .active, html[data-theme=dark] .mode .active { background: var(--yuko-floating-active); }
+.head-actions button, .head-actions .profile-trigger,
+html[data-theme=dark] .head-actions button,
+html[data-theme=dark] .head-actions .profile-trigger {
+  border: 0;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-button-default);
+  color: var(--yuko-ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+.head-actions .theme-toggle, html[data-theme=dark] .head-actions .theme-toggle {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+.head-actions button:hover:not(:disabled),
+.head-actions .profile-trigger:hover,
+html[data-theme=dark] .head-actions button:hover:not(:disabled) { background: var(--yuko-floating-hover); }
+.profile-trigger__avatar, html[data-theme=dark] .profile-trigger__avatar {
+  border-radius: 50%;
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+}
+.profile-menu, html[data-theme=dark] .profile-menu {
+  padding: 8px;
+  border: 1px solid var(--yuko-border);
+  border-radius: 18px;
+  background: var(--yuko-floating);
+  box-shadow: var(--yuko-shadow);
+  backdrop-filter: blur(16px);
+}
+.profile-menu button, html[data-theme=dark] .profile-menu button { border-radius: 12px; background: transparent; }
+.profile-menu button:hover:not(:disabled), html[data-theme=dark] .profile-menu button:hover:not(:disabled) { background: var(--yuko-control); }
+
+/* Frame and journey */
+#rail { background: var(--yuko-surface); border-right: 1px solid var(--yuko-control); }
+.guide-journey { top: 96px; }
+.guide-kicker, .guide-meter-copy, .guide-step-number, .guide-step-copy small, .guide-journey-note { color: var(--yuko-muted); }
+.guide-kicker { font-size: 12px; font-weight: 400; letter-spacing: .1em; }
+.guide-journey h2 { font-size: 25px; line-height: 1.2; font-weight: 400; letter-spacing: -.045em; }
+.guide-meter-copy strong { color: var(--yuko-ink); font-weight: 500; }
+.guide-journey progress { height: 5px; background: var(--yuko-border); color: var(--yuko-ink); }
+.guide-journey progress::-webkit-progress-bar { background: var(--yuko-border); }
+.guide-journey progress::-webkit-progress-value { background: var(--yuko-ink); }
+.guide-journey progress::-moz-progress-bar { background: var(--yuko-ink); }
+.guide-journey li { padding-block: 15px; border-color: var(--yuko-border); }
+.guide-journey li.current { color: var(--yuko-ink); }
+.guide-journey li.current .guide-step-number {
+  border-color: var(--yuko-ink);
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+}
+.guide-journey li.done .guide-step-number { border-color: var(--yuko-ink); color: var(--yuko-ink); }
+.guide-step-copy b { font-size: 14px; font-weight: 500; }
+#app, body.intro-page #app, html[data-theme=dark] #app {
+  background: var(--yuko-canvas);
+  color: var(--yuko-ink);
+}
+.guide-thread { max-width: 830px; padding: 58px 40px 100px; }
+
+/* Entry and conversation */
+body.intro-page .guided-layout, body.intro-page #app { background: var(--yuko-canvas); }
+body.intro-page .guide-thread { width: min(760px, calc(100% - 2 * var(--yuko-page-gutter))); }
+body.intro-page .guide-thread .hero h1 {
+  margin-bottom: 22px;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -.06em;
+  color: transparent;
+  background: linear-gradient(105deg in oklab, var(--yuko-gradient-start) 1%, var(--yuko-gradient-middle) 48%, var(--yuko-gradient-end) 99%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-wrap: balance;
+}
+body.intro-page .guide-thread .hero > p { color: var(--yuko-muted); font-size: 16px; line-height: 1.6; }
+body.intro-page .guide-thread .setup { margin-block: 32px 28px; }
+.guide-thread .assistant img { width: 23px; height: 23px; }
+.guide-thread .assistant-copy, .guide-thread .assistant-copy p { color: var(--yuko-ink); font-size: 15px; line-height: 1.6; }
+.guide-thread .user-line, .guide-user-context {
+  padding: 15px 19px;
+  border: 1px solid var(--yuko-border);
+  border-radius: 20px 20px 5px 20px;
+  background: var(--yuko-surface);
+  color: var(--yuko-ink);
+  font-size: 15px;
+}
+.guide-thread .hero h1 { font-weight: 400; }
+.guide-thread .hero h1::after { color: var(--yuko-muted); }
+.guide-thread .question p { font-weight: 500; }
+.guide-thread .eyebrow, .guide-thread .micro, .guide-thread .stat small,
+.guide-thread th, .guide-thread .flow-caption { color: var(--yuko-muted); }
+.guide-thread .brief-page .assistant-copy > p:first-child,
+.guide-thread .assistant-copy .guide-reply-lead { font-weight: 500; }
+
+/* Buttons, chips and fields */
+button, html[data-theme=dark] button {
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-button-default);
+  color: var(--yuko-ink);
+  font-size: 14px;
+  font-weight: 400;
+  transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
+}
+button:hover:not(:disabled), html[data-theme=dark] button:hover:not(:disabled) {
+  border-color: transparent;
+  background: var(--yuko-floating-hover);
+  box-shadow: none;
+}
+button:active:not(:disabled) { transform: scale(.97); }
+button:disabled, html[data-theme=dark] button:disabled {
+  border-color: transparent;
+  background: var(--yuko-surface);
+  color: var(--yuko-disabled);
+}
+button.primary, .guide-thread button.primary,
+html[data-theme=dark] button.primary,
+html[data-theme=dark] .guide-thread button.primary {
+  padding-inline: 20px;
+  border: 1px solid var(--yuko-ink);
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+}
+button.primary:hover:not(:disabled), .guide-thread button.primary:hover:not(:disabled),
+html[data-theme=dark] button.primary:hover:not(:disabled),
+html[data-theme=dark] .guide-thread button.primary:hover:not(:disabled) {
+  border-color: var(--yuko-ink);
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+  opacity: .87;
+}
+button.primary:disabled, .guide-thread button.primary:disabled,
+html[data-theme=dark] button.primary:disabled,
+html[data-theme=dark] .guide-thread button.primary:disabled {
+  border-color: transparent;
+  background: var(--yuko-surface);
+  color: var(--yuko-disabled);
+  opacity: 1;
+}
+button.quiet, .guide-thread button.quiet, html[data-theme=dark] button.quiet {
+  border-color: transparent;
+  border-radius: var(--yuko-radius-pill);
+  background: transparent;
+  color: var(--yuko-ink);
+}
+button.selected, .guide-thread .setup .pill.selected,
+.guide-thread .examples button.selected, .guide-thread .chips button.selected,
+.market-choice.selected,
+html[data-theme=dark] button.selected,
+html[data-theme=dark] .guide-thread .setup .pill.selected,
+html[data-theme=dark] .guide-thread .examples button.selected,
+html[data-theme=dark] .guide-thread .chips button.selected {
+  border-color: var(--yuko-ink);
+  background: var(--yuko-floating-active);
+  color: var(--yuko-ink);
+}
+.guide-thread .setup .pill, .guide-thread .examples button,
+.guide-thread .chips button, html[data-theme=dark] .guide-thread .setup .pill,
+html[data-theme=dark] .guide-thread .examples button,
+html[data-theme=dark] .guide-thread .chips button {
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-button-default);
+  color: var(--yuko-ink);
+  font-size: 14px;
+}
+.guide-thread .examples button,
+html[data-theme=dark] .guide-thread .examples button,
+html[data-theme=light] body.intro-page .guide-thread .examples button:not(.selected) {
+  background: var(--yuko-button-default);
+}
+html[data-theme=light] body.intro-page .setup .pill:not(.selected):not(:disabled),
+html[data-theme=light] body.intro-page .examples button:not(.selected),
+html[data-theme=light] body.intro-page .head-actions > button,
+html[data-theme=light] body.intro-page .head-actions > .profile-wrap > .profile-trigger,
+html[data-theme=dark] .head-actions .theme-toggle {
+  background: var(--yuko-button-default);
+}
+html[data-theme=light] body.intro-page .setup .pill:hover:not(.selected):not(:disabled),
+html[data-theme=light] body.intro-page .examples button:hover:not(.selected):not(:disabled),
+html[data-theme=light] body.intro-page .head-actions > button:hover:not(:disabled),
+html[data-theme=light] body.intro-page .head-actions > .profile-wrap > .profile-trigger:hover {
+  background: var(--yuko-floating-hover);
+}
+.guide-thread .chips button:hover:not(:disabled),
+.guide-thread .setup .pill:hover:not(:disabled) {
+  border-color: transparent;
+  background: var(--yuko-floating-hover);
+}
+.guide-thread .examples button:hover:not(:disabled):not(.selected),
+html[data-theme=dark] .guide-thread .examples button:hover:not(:disabled):not(.selected),
+html[data-theme=light] body.intro-page .guide-thread .examples button:hover:not(:disabled):not(.selected) {
+  border-color: transparent;
+  background: var(--yuko-floating-hover);
+}
+.guide-thread .composer, html[data-theme=dark] .guide-thread .composer,
+.guide-composer, html[data-theme=dark] .guide-composer {
+  border: 1px solid var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-white);
+  box-shadow: 0 4px 10px #20202008, 0 14px 32px #2020200a;
+}
+.guide-thread .composer:focus-within, .guide-composer:focus-within {
+  border-color: var(--yuko-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yuko-focus) 18%, transparent);
+}
+.guide-thread .composer textarea, .guide-composer textarea,
+html[data-theme=dark] .guide-thread .composer textarea,
+html[data-theme=dark] .guide-composer textarea { background: transparent; color: var(--yuko-ink); }
+.guide-thread .send, .guide-composer-send,
+html[data-theme=dark] .guide-thread .send,
+html[data-theme=dark] .guide-composer-send {
+  border: 0;
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+}
+.guide-thread .send:hover:not(:disabled), .guide-composer-send:hover:not(:disabled),
+html[data-theme=dark] .guide-composer-send:hover:not(:disabled) { background: var(--yuko-ink); color: var(--yuko-canvas); opacity: .87; }
+.guide-composer-dock { background: linear-gradient(to bottom, transparent, var(--yuko-canvas) 28%); }
+input, select, textarea, html[data-theme=dark] input,
+html[data-theme=dark] select, html[data-theme=dark] textarea {
+  border: 1px solid var(--yuko-border);
+  border-radius: var(--yuko-radius-field);
+  background-color: var(--yuko-white);
+  color: var(--yuko-ink);
+  font-size: 16px;
+}
+input::placeholder, textarea::placeholder,
+html[data-theme=dark] input::placeholder,
+html[data-theme=dark] textarea::placeholder { color: var(--yuko-muted); opacity: 1; }
+.brief-page .field-grid label { color: var(--yuko-ink); font-size: 14px; font-weight: 500; }
+.brief-page .field-grid input, .brief-page .field-grid select,
+.brief-page .field-grid textarea, .brief-page .field-grid select:disabled,
+html[data-theme=dark] .brief-page .field-grid select {
+  border-color: var(--yuko-border);
+  border-radius: var(--yuko-radius-field);
+  background-color: var(--yuko-white);
+  color: var(--yuko-ink);
+  box-shadow: none;
+}
+.brief-page .field-grid input[aria-invalid=true] { border-color: var(--yuko-danger); }
+.brief-page .field-grid .field-error { color: var(--yuko-danger); }
+
+/* Cards, disclosure, upload and status */
+.guide-thread .card, .guide-thread .diagram, .guide-thread details,
+html[data-theme=dark] .guide-thread .card,
+html[data-theme=dark] .guide-thread .diagram,
+html[data-theme=dark] .guide-thread details {
+  border: 1px solid var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-surface);
+  box-shadow: none;
+}
+.guide-thread .brief, html[data-theme=dark] .guide-thread .brief {
+  border-color: var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-surface);
+  box-shadow: none;
+}
+.guide-thread .brief-row, .guide-thread .file-row,
+.guide-thread .output-row, .guide-thread .publish-check,
+.guide-thread .diagram-head, .guide-thread .activity { border-color: var(--yuko-border); }
+.guide-thread .dropzone, html[data-theme=dark] .guide-thread .dropzone {
+  border: 1px dashed var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-surface);
+}
+.guide-thread .compact-bar, html[data-theme=dark] .guide-thread .compact-bar { color: var(--yuko-ink); }
+.guide-disclosure, html[data-theme=dark] .guide-disclosure {
+  border-color: var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-surface);
+}
+.guide-disclosure-trigger, html[data-theme=dark] .guide-disclosure-trigger {
+  border-radius: 0;
+  background: var(--yuko-surface);
+  color: var(--yuko-ink);
+  font-weight: 500;
+}
+.guide-disclosure-trigger:hover:not(:disabled) { background: var(--yuko-floating-hover); }
+.guide-thread summary { color: var(--yuko-ink); }
+.guide-thread summary:hover { background: var(--yuko-floating-hover); }
+.guide-thread .tag, html[data-theme=dark] .guide-thread .tag {
+  padding: 5px 11px;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-success-soft);
+  color: var(--yuko-success);
+  font-size: 13px;
+}
+.guide-thread .tag.gray, html[data-theme=dark] .guide-thread .tag.gray {
+  background: var(--yuko-control);
+  color: var(--yuko-muted);
+}
+.guide-thread .tag.amber, html[data-theme=dark] .guide-thread .tag.amber {
+  background: var(--yuko-warning-soft);
+  color: var(--yuko-warning);
+}
+.guide-thread .progress, .guide-thread .guide-journey progress { background: var(--yuko-border); }
+.guide-thread .progress i { background: var(--yuko-ink); }
+.project-link, html[data-theme=dark] .project-link {
+  border: 1px solid var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-surface);
+}
+.project-link.is-current, html[data-theme=dark] .project-link.is-current {
+  border-color: var(--yuko-ink);
+  background: var(--yuko-surface);
+}
+
+/* Floating layers */
+.panel-backdrop, .market-dialog-backdrop,
+html[data-theme=dark] .panel-backdrop,
+html[data-theme=dark] .market-dialog-backdrop {
+  background: color-mix(in srgb, var(--yuko-ink) 28%, transparent);
+  backdrop-filter: blur(5px);
+}
+.panel-sheet, html[data-theme=dark] .panel-sheet {
+  border-radius: var(--yuko-radius-panel) 0 0 var(--yuko-radius-panel);
+  background: var(--yuko-canvas);
+  box-shadow: var(--yuko-shadow);
+}
+.market-dialog, html[data-theme=dark] .market-dialog {
+  border: 1px solid var(--yuko-border);
+  border-radius: var(--yuko-radius-panel);
+  background: var(--yuko-floating);
+  box-shadow: var(--yuko-shadow);
+  backdrop-filter: blur(16px);
+}
+#toast, html[data-theme=dark] #toast {
+  border: 0;
+  border-radius: var(--yuko-radius-pill);
+  background: var(--yuko-ink);
+  color: var(--yuko-canvas);
+  box-shadow: var(--yuko-shadow);
+}
+footer, body.intro-page footer { border-color: var(--yuko-border); background: var(--yuko-canvas); color: var(--yuko-muted); }
+footer a, body.intro-page footer a { color: var(--yuko-muted); }
+.live-dot { background: var(--yuko-success); }
+
+@media (max-width: 900px) {
+  #rail { border-right: 0; border-bottom: 1px solid var(--yuko-border); }
+  .guide-journey { top: auto; }
+  .guide-thread { padding-inline: var(--yuko-page-gutter); }
+}
+@media (max-width: 600px) {
+  header, body.intro-page header { padding: 12px var(--yuko-page-gutter); }
+  .brand { font-size: 19px; }
+  .brand img { width: 22px; height: 22px; }
+  .mode { width: 100%; }
+  .mode button { flex: 1; }
+  body.intro-page .guide-thread { width: calc(100% - 2 * var(--yuko-page-gutter)); padding-block: 36px 60px; }
+  body.intro-page .guide-thread .hero h1 { font-size: clamp(28px, 7vw, 34px); }
+  .guide-thread { padding: 30px var(--yuko-page-gutter) 70px; }
+  .guide-thread .user-line, .guide-user-context { max-width: 90%; }
+  .guide-composer-dock { padding-inline: var(--yuko-page-gutter); }
+  .guide-composer { border-radius: 22px; }
+  .panel-sheet { border-radius: var(--yuko-radius-panel) var(--yuko-radius-panel) 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

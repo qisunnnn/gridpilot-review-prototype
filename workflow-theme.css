@@ -1,0 +1,185 @@
+/* The icon shares the header's neutral outlined control treatment. */
+.head-actions .theme-toggle{display:grid;place-items:center;width:40px;height:40px;min-height:40px;padding:0;border-radius:7px}
+.theme-toggle__icon{position:relative;display:block;width:20px;height:20px}
+.theme-toggle__icon svg{position:absolute;inset:0;display:block;width:20px;height:20px;transform-origin:center;transition:transform .28s cubic-bezier(.32,.72,0,1),opacity .2s ease-out}
+.theme-toggle__icon circle,.theme-toggle__icon path{stroke-dasharray:80;stroke-dashoffset:0;transition:stroke-dashoffset .28s cubic-bezier(.32,.72,0,1)}
+.theme-toggle__sun{opacity:1;transform:scale(1) rotate(0)}
+.theme-toggle__moon{opacity:0;transform:scale(.76) rotate(-35deg)}
+.theme-toggle__moon path{stroke-dashoffset:80}
+html[data-theme=dark] .theme-toggle__sun{opacity:0;transform:scale(.76) rotate(35deg)}
+html[data-theme=dark] .theme-toggle__sun circle,html[data-theme=dark] .theme-toggle__sun path{stroke-dashoffset:80}
+html[data-theme=dark] .theme-toggle__moon{opacity:1;transform:scale(1) rotate(0)}
+html[data-theme=dark] .theme-toggle__moon path{stroke-dashoffset:0}
+html.theme-changing *,html.theme-changing *::before,html.theme-changing *::after{transition:none!important}
+html.theme-changing .theme-toggle__icon svg{transition:transform .28s cubic-bezier(.32,.72,0,1),opacity .2s ease-out!important}
+html.theme-changing .theme-toggle__icon circle,html.theme-changing .theme-toggle__icon path{transition:stroke-dashoffset .28s cubic-bezier(.32,.72,0,1)!important}
+
+html[data-theme=dark]{
+  color-scheme:dark;
+  --ink:oklch(.94 .005 250);
+  --paper:oklch(.18 .01 250);
+  --muted:oklch(.73 .012 250);
+  --line:oklch(.37 .015 250);
+  --green:oklch(.77 .055 163);
+  --amber:oklch(.81 .07 80);
+  --surface:oklch(.225 .012 250);
+  --surface-raised:oklch(.265 .014 250);
+  --surface-hover:oklch(.30 .014 250);
+  --text-soft:oklch(.78 .012 250);
+  --border-strong:oklch(.49 .018 250);
+}
+
+html[data-theme=dark] body{
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(ellipse 62% 48% at 18% 37%,oklch(.32 .035 250 / .32),transparent 75%),
+    radial-gradient(ellipse 50% 45% at 81% 40%,oklch(.30 .025 75 / .22),transparent 75%),
+    radial-gradient(ellipse 50% 38% at 52% 82%,oklch(.30 .03 165 / .16),transparent 76%);
+  background-attachment:fixed;
+}
+html[data-theme=dark] header{background:oklch(.18 .01 250 / .89);border-color:var(--line)}
+html[data-theme=dark] body.intro-page header{background:transparent}
+html[data-theme=dark] .brand,
+html[data-theme=dark] a{color:var(--ink)}
+html[data-theme=dark] .brand img,
+html[data-theme=dark] .hero-mark,
+html[data-theme=dark] .assistant img{filter:brightness(0) invert(1)}
+html[data-theme=dark] footer,
+html[data-theme=dark] footer a,
+html[data-theme=dark] .muted,
+html[data-theme=dark] .flow-caption,
+html[data-theme=dark] .waiting p,
+html[data-theme=dark] .assistant-copy .answer-line,
+html[data-theme=dark] .receipt span,
+html[data-theme=dark] .output-row small,
+html[data-theme=dark] .project-link p{color:var(--text-soft)}
+html[data-theme=dark] .micro,
+html[data-theme=dark] .eyebrow,
+html[data-theme=dark] .stat small,
+html[data-theme=dark] th,
+html[data-theme=dark] body.intro-page .micro,
+html[data-theme=dark] body.intro-page footer,
+html[data-theme=dark] body.intro-page footer a{color:var(--muted)}
+html[data-theme=dark] .live-dot{background:var(--green)}
+
+html[data-theme=dark] button{background:var(--surface-raised);border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] button:hover:not(:disabled){background:var(--surface-hover);border-color:var(--border-strong)}
+html[data-theme=dark] button:disabled{background:var(--surface);border-color:var(--line);color:oklch(.58 .012 250)}
+html[data-theme=dark] button.primary,
+html[data-theme=dark] .send{background:oklch(.94 .005 250);border-color:oklch(.94 .005 250);color:oklch(.19 .01 250)}
+html[data-theme=dark] button.primary:hover:not(:disabled),
+html[data-theme=dark] .send:hover:not(:disabled){background:oklch(.84 .009 250);border-color:oklch(.84 .009 250)}
+html[data-theme=dark] button.primary:disabled{background:var(--surface-raised);border-color:var(--line);color:oklch(.58 .012 250)}
+html[data-theme=dark] button.quiet,
+html[data-theme=dark] .mode button{background:transparent}
+html[data-theme=dark] button.quiet:hover:not(:disabled),
+html[data-theme=dark] .mode button:hover:not(:disabled){background:var(--surface-hover)}
+html[data-theme=dark] button.selected,
+html[data-theme=dark] .mode .active,
+html[data-theme=dark] .setup .pill.selected,
+html[data-theme=dark] .examples button.selected,
+html[data-theme=dark] .market-choice.selected{background:oklch(.34 .019 250);border-color:var(--border-strong);color:var(--ink)}
+html[data-theme=dark] .mode button:not(.active){color:var(--muted)}
+html[data-theme=dark] .head-actions .theme-toggle{background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .head-actions .theme-toggle:hover{background:var(--surface-hover)}
+html[data-theme=dark] .profile-trigger__avatar{background:var(--ink);color:var(--paper)}
+html[data-theme=dark] button:focus-visible,
+html[data-theme=dark] a:focus-visible,
+html[data-theme=dark] input:focus-visible,
+html[data-theme=dark] textarea:focus-visible,
+html[data-theme=dark] select:focus-visible,
+html[data-theme=dark] .brief-page summary:focus-visible{outline-color:oklch(.75 .075 250)}
+
+html[data-theme=dark] .setup .divider{background:var(--line)}
+html[data-theme=dark] .setup .pill,
+html[data-theme=dark] .examples button{background:var(--surface-raised);border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] .setup .pill:hover:not(:disabled):not(.selected),
+html[data-theme=dark] .examples button:hover:not(:disabled):not(.selected){background:var(--surface-hover)}
+html[data-theme=dark] .setup .pill:disabled{background:var(--surface);color:oklch(.58 .012 250)}
+html[data-theme=dark] .composer,
+html[data-theme=dark] .brief,
+html[data-theme=dark] .card,
+html[data-theme=dark] details,
+html[data-theme=dark] .diagram,
+html[data-theme=dark] .market-dialog,
+html[data-theme=dark] .panel-sheet{background:var(--surface);border-color:var(--line);box-shadow:0 16px 40px oklch(.08 .005 250 / .18)}
+html[data-theme=dark] .card.flat{background:transparent;box-shadow:none}
+html[data-theme=dark] .composer:focus-within{border-color:var(--border-strong);box-shadow:0 0 0 3px oklch(.69 .07 250 / .2)}
+html[data-theme=dark] .composer textarea{background:transparent;color:var(--ink)}
+html[data-theme=dark] .composer textarea::placeholder,
+html[data-theme=dark] body.intro-page .composer textarea::placeholder,
+html[data-theme=dark] input::placeholder,
+html[data-theme=dark] textarea::placeholder{color:oklch(.66 .012 250)}
+html[data-theme=dark] .conversation>.user-line::before{background:var(--surface-raised);border-color:var(--line)}
+html[data-theme=dark] .thin-rule,
+html[data-theme=dark] .brief .brief-row,
+html[data-theme=dark] .file-row,
+html[data-theme=dark] .activity,
+html[data-theme=dark] .output-row,
+html[data-theme=dark] .publish-check,
+html[data-theme=dark] .receipt span+span,
+html[data-theme=dark] .brief-page details[open]>summary,
+html[data-theme=dark] .diagram-head,
+html[data-theme=dark] th,
+html[data-theme=dark] td{border-color:var(--line)}
+html[data-theme=dark] .thin-rule{background:var(--line)}
+html[data-theme=dark] .rail button{background:transparent;border-color:var(--line);color:var(--muted)}
+html[data-theme=dark] .rail button.current{color:var(--ink);border-color:var(--ink)}
+html[data-theme=dark] .rail button.completed{color:var(--green)}
+html[data-theme=dark] .file-row .filename,
+html[data-theme=dark] .brief-page .field-grid label{color:var(--ink)}
+html[data-theme=dark] .dropzone{background:oklch(.23 .014 250 / .55);border-color:var(--border-strong)}
+html[data-theme=dark] .dropzone.over{background:oklch(.33 .04 250 / .7);border-color:oklch(.70 .07 250)}
+html[data-theme=dark] .progress{background:var(--line)}
+html[data-theme=dark] .progress i{background:var(--ink)}
+html[data-theme=dark] .activity .check,
+html[data-theme=dark] .receipt .done{color:var(--green)}
+html[data-theme=dark] .seal{border-color:oklch(.50 .04 160);color:var(--green);box-shadow:0 0 0 10px oklch(.35 .035 160 / .16)}
+
+html[data-theme=dark] input,
+html[data-theme=dark] select,
+html[data-theme=dark] textarea{background:var(--surface-raised);border-color:var(--line);color:var(--ink);accent-color:var(--green)}
+html[data-theme=dark] input:hover,
+html[data-theme=dark] select:hover,
+html[data-theme=dark] textarea:hover{border-color:var(--border-strong)}
+html[data-theme=dark] .brief-page .field-grid select{background-color:var(--surface-raised);border-color:var(--line)}
+html[data-theme=dark] .brief-page .field-grid select:hover{background-color:var(--surface-hover);border-color:var(--border-strong)}
+html[data-theme=dark] .brief-page .field-grid select:disabled{background-color:var(--surface);color:oklch(.58 .012 250)}
+html[data-theme=dark] .brief-page{--brief-chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23c5ccd4' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+html[data-theme=dark] select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23c5ccd4' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+html[data-theme=dark] .brief-page .field-grid small{color:var(--muted)}
+html[data-theme=dark] .brief-page .field-grid .field-error{color:oklch(.78 .10 25)}
+html[data-theme=dark] .brief-page .field-grid input[aria-invalid=true]{border-color:oklch(.67 .11 25)}
+html[data-theme=dark] .brief-page summary:hover{background:var(--surface-hover)}
+html[data-theme=dark] .market-choice small,
+html[data-theme=dark] .market-grid small{color:var(--muted)}
+html[data-theme=dark] .panel-backdrop,
+html[data-theme=dark] .market-dialog-backdrop{background:oklch(.07 .005 250 / .72)}
+html[data-theme=dark] .compact-bar{background:oklch(.28 .03 165);border-color:oklch(.43 .035 165)}
+html[data-theme=dark] .compact-bar.amber{background:oklch(.29 .025 80);border-color:oklch(.43 .035 80);color:var(--ink)}
+html[data-theme=dark] .compact-bar.draft{background:var(--surface-raised);border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] .compact-bar.review{background:oklch(.28 .035 250);border-color:oklch(.44 .04 250);color:var(--ink)}
+html[data-theme=dark] .tag{color:var(--green);background:oklch(.32 .035 163)}
+html[data-theme=dark] .tag.gray{color:var(--text-soft);background:oklch(.32 .012 250)}
+html[data-theme=dark] .tag.amber{color:var(--amber);background:oklch(.32 .03 80)}
+html[data-theme=dark] .tag.review{color:oklch(.82 .06 250);background:oklch(.34 .04 250)}
+html[data-theme=dark] .preview-band{background:var(--surface-raised);color:var(--ink)}
+html[data-theme=dark] .package-icon{color:var(--text-soft)}
+html[data-theme=dark] .diagram .wire{stroke:oklch(.70 .04 250)}
+html[data-theme=dark] .diagram .node rect{fill:var(--surface-raised);stroke:oklch(.58 .05 250)}
+html[data-theme=dark] .diagram .node text,
+html[data-theme=dark] .diagram text{fill:var(--text-soft)}
+html[data-theme=dark] .diagram pattern path{stroke:oklch(.38 .015 250)}
+html[data-theme=dark] #toast{background:var(--surface-raised);color:var(--ink);border:1px solid var(--line)}
+
+@media(pointer:coarse){.head-actions .theme-toggle{width:44px;height:44px;min-height:44px}}
+@media(prefers-reduced-motion:reduce){.theme-toggle__icon svg,.theme-toggle__icon circle,.theme-toggle__icon path,html.theme-changing .theme-toggle__icon svg,html.theme-changing .theme-toggle__icon circle,html.theme-changing .theme-toggle__icon path{transition:none!important}}
+
+html[data-theme=dark] .project-link.is-current{background:var(--surface-hover);border-color:var(--border-strong)}
+
+html[data-theme=dark] .profile-menu{background:var(--surface-raised);border-color:var(--line);box-shadow:0 14px 32px #0007}
+html[data-theme=dark] .profile-menu button{background:transparent;color:var(--ink)}
+html[data-theme=dark] .profile-menu button:hover:not(:disabled){background:var(--surface-hover);border-color:transparent}
+html[data-theme=dark] .profile-menu__divider{background:var(--line)}
+html[data-theme=dark] .project-intake-details .details-chevron,
+html[data-theme=dark] .intake-accordion .details-chevron{color:var(--text-soft)}

@@ -1,0 +1,328 @@
+/* Visual treatment of the two GridPilot Figma frames. Keep the existing flow and content. */
+:root {
+  --yuko-canvas: #fafcfd;
+  --yuko-surface: #f5f7f8;
+  --yuko-ink: #202020;
+  --yuko-muted: #6c7278;
+  --yuko-border: #e4e7e9;
+  --yuko-button-default: #fff;
+  --yuko-floating-hover: #f3f5f6;
+  --yuko-floating-active: #e9edef;
+  --yuko-focus: #557b97;
+  --guide-surface: #fff;
+  --guide-soft: #f5f6f7;
+  --guide-line: #e4e7e9;
+  --guide-accent: #202020;
+  --paper: #f7fafb;
+  --muted: #6c7278;
+  --line: #e4e7e9;
+  --gridpilot-heading-gradient: linear-gradient(100deg, #4c5358 8%, #426780 56%, #376b95 100%);
+  --gridpilot-page-background: linear-gradient(70deg,
+    rgb(247 247 247 / 15%) 0%,
+    rgb(111 119 129 / 6%) 50.48%,
+    rgb(7 103 170 / 15%) 74.52%), #fff;
+}
+
+body,
+html[data-theme=dark] body {
+  font-family: Archivo, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+h1, h2, h3, button, input, select, textarea {
+  font-family: Archivo, Arial, Helvetica, sans-serif;
+}
+
+html:not([data-theme=dark]) header,
+html:not([data-theme=dark]) body.intro-page header {
+  height: 70px;
+  min-height: 70px;
+  border-bottom-color: #e7ebed;
+  background: transparent;
+}
+html:not([data-theme=dark]) .mode {
+  gap: 6px;
+  padding: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+}
+html:not([data-theme=dark]) .mode button {
+  min-height: 36px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--yuko-ink);
+}
+html:not([data-theme=dark]) .mode .active {
+  border-color: var(--yuko-ink);
+  background: #fff;
+}
+html:not([data-theme=dark]) .mode button:hover:not(.active) {
+  background: #f5f7f8;
+}
+html[data-theme=dark] .mode {
+  gap: 6px;
+  padding: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--yuko-surface);
+}
+html[data-theme=dark] .mode button {
+  border: 1px solid transparent;
+  background: transparent;
+}
+html[data-theme=dark] .mode .active {
+  border-color: var(--yuko-ink);
+  background: var(--yuko-canvas);
+}
+html:not([data-theme=dark]) .head-actions button,
+html:not([data-theme=dark]) .head-actions .profile-trigger {
+  background: #fff;
+}
+html:not([data-theme=dark]) .head-actions button:hover:not(:disabled),
+html:not([data-theme=dark]) .head-actions .profile-trigger:hover {
+  background: #f5f7f8;
+}
+html:not([data-theme=dark]) .profile-menu {
+  background: #fff;
+  backdrop-filter: none;
+}
+
+/* Project brief shares the same canvas as the guided workspace. */
+html:not([data-theme=dark]) body.intro-page .guided-layout,
+html:not([data-theme=dark]) body.intro-page #app {
+  background: transparent;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .hero h1 {
+  margin: 0 0 35px;
+  font-size: clamp(30px, 3vw, 32px);
+  line-height: 1.14;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  background: var(--gridpilot-heading-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup {
+  gap: 13px;
+  margin: 0 0 28px;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup-group {
+  gap: 8px;
+}
+html:not([data-theme=dark]) body.intro-page .setup-label {
+  color: #686e73;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill {
+  height: 32px;
+  min-height: 32px;
+  padding: 5px 13px;
+  border: 1px solid transparent;
+  background: #ffffffd9;
+  color: var(--yuko-ink);
+  font-size: 12px;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill.selected,
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill.selected:hover {
+  border-color: #202020;
+  background: #202020;
+  color: #fff;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill:disabled {
+  background: #ffffff91;
+  color: #6d7276;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill:hover:not(.selected):not(:disabled) {
+  background: #fff;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .composer {
+  border: 1px solid #fff;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 16px 34px #46738d12, 0 4px 12px #46738d08;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .composer textarea {
+  min-height: 156px;
+  padding: 20px 20px 8px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .composer textarea::placeholder {
+  color: #777e84;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .composer-bottom {
+  padding: 0 14px 14px 20px;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .composer-bottom .micro {
+  color: #71777c;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .send {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  background: #202020;
+  color: #fff;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .examples-group {
+  margin-top: 18px;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .examples button {
+  min-height: 34px;
+  padding: 6px 13px;
+  border: 1px solid transparent;
+  background: #fff;
+  color: #252729;
+  font-size: 12px;
+}
+html:not([data-theme=dark]) body.intro-page .guide-thread .examples button.selected {
+  border-color: #202020;
+  background: #202020;
+  color: #fff;
+}
+html:not([data-theme=dark]) body.intro-page footer {
+  border-top-color: #e7ebed;
+  background: transparent;
+}
+
+/* One canvas runs behind the project brief, navigation, and filing journey. */
+html:not([data-theme=dark]) body {
+  background: var(--gridpilot-page-background);
+  background-attachment: fixed;
+}
+html:not([data-theme=dark]) body:not(.intro-page) header {
+  border-bottom: 0;
+  background: transparent;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guided-layout {
+  background: transparent;
+}
+html:not([data-theme=dark]) body:not(.intro-page) #rail {
+  border: 0;
+  background: transparent;
+}
+html:not([data-theme=dark]) body:not(.intro-page) #app {
+  border: 0;
+  border-radius: 32px 0 0 0;
+  background: #fff;
+  box-shadow: 0 10px 24px 0 rgb(31 31 31 / 3%);
+}
+html[data-theme=dark] body:not(.intro-page) {
+  background: linear-gradient(90deg, #25272a 0%, #212326 50%, #1a2830 100%);
+  background-attachment: fixed;
+}
+html[data-theme=dark] body:not(.intro-page) header,
+html[data-theme=dark] body:not(.intro-page) .guided-layout,
+html[data-theme=dark] body:not(.intro-page) #rail {
+  background: transparent;
+}
+html[data-theme=dark] body:not(.intro-page) header {
+  border-bottom: 0;
+}
+html[data-theme=dark] body:not(.intro-page) #rail {
+  border: 0;
+}
+html[data-theme=dark] body:not(.intro-page) #app {
+  border: 0;
+  border-radius: 32px 0 0 0;
+  box-shadow: 0 10px 24px 0 rgb(0 0 0 / 24%);
+}
+body:not(.intro-page) {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+body:not(.intro-page) header {
+  flex: 0 0 auto;
+}
+body:not(.intro-page) .guided-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr);
+}
+body:not(.intro-page) #rail {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+body:not(.intro-page) .guide-journey {
+  position: static;
+}
+body:not(.intro-page) #app {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-padding-bottom: 150px;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-journey h2 {
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -.045em;
+  background: var(--gridpilot-heading-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+html[data-theme=dark] body:not(.intro-page) .guide-journey h2 {
+  background: linear-gradient(100deg, #d6dfe5 8%, #9fcae0 56%, #83b9d9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-kicker {
+  font-size: 11px;
+  letter-spacing: .11em;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-thread .user-line,
+html:not([data-theme=dark]) body:not(.intro-page) .guide-user-context {
+  border-color: transparent;
+  background: #f5f6f7;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-thread .chips button,
+html:not([data-theme=dark]) body:not(.intro-page) .guide-thread .setup .pill {
+  border-color: transparent;
+  background: #f5f6f7;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-thread .chips button.selected,
+html:not([data-theme=dark]) body:not(.intro-page) .guide-thread .setup .pill.selected {
+  border-color: #202020;
+  background: #202020;
+  color: #fff;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-composer {
+  border-color: #e5e8ea;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 10px 26px #2020200d;
+}
+html:not([data-theme=dark]) body:not(.intro-page) .guide-composer-send {
+  border-radius: 50%;
+  background: #202020;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  body:not(.intro-page) .guided-layout { grid-template-rows: auto minmax(0, 1fr); }
+  html:not([data-theme=dark]) body:not(.intro-page) #app,
+  html[data-theme=dark] body:not(.intro-page) #app { border-radius: 0; }
+}
+@media (max-width: 800px) {
+  html:not([data-theme=dark]) header,
+  html:not([data-theme=dark]) body.intro-page header {
+    height: auto;
+    min-height: 70px;
+  }
+}
+@media (max-width: 600px) {
+  html:not([data-theme=dark]) body.intro-page .guide-thread .hero h1 { margin-bottom: 28px; }
+  html:not([data-theme=dark]) body.intro-page .guide-thread .setup .pill { min-height: 40px; height: 40px; }
+  html:not([data-theme=dark]) body.intro-page .guide-thread .examples button { min-height: 40px; }
+}

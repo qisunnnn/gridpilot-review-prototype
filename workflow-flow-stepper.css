@@ -1,0 +1,151 @@
+#rail .guide-journey[data-flow] {
+  --flow-ink: #202a31;
+  --flow-muted: #64717b;
+}
+
+html[data-theme=dark] #rail .guide-journey[data-flow] {
+  --flow-ink: #eef3f5;
+  --flow-muted: #a8b6bf;
+}
+
+#rail .guide-journey[data-flow] li[data-open] {
+  position: relative;
+  padding-left: 15px;
+}
+
+#rail .guide-journey[data-flow] .flow-step-line {
+  display: none;
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0;
+  width: 1px;
+  min-height: 30px;
+  overflow: hidden;
+  border-radius: 99px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#rail .guide-journey[data-flow] li[data-open] .flow-step-line {
+  display: block;
+}
+
+#rail .guide-journey[data-flow] .flow-step-fill {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-radius: inherit;
+  background: #202a31;
+}
+
+html[data-theme=dark] #rail .guide-journey[data-flow] .flow-step-fill {
+  background: #eef3f5;
+}
+
+@media (min-width: 901px) {
+  #rail .guide-journey[data-flow] li { border-bottom: 0; }
+  #rail .guide-journey[data-flow] .guide-step-copy small {
+    color: var(--flow-muted);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  #rail .guide-journey[data-flow] ol {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 310px;
+  }
+  #rail .guide-journey[data-flow] li {
+    position: relative;
+    display: block;
+    min-height: 44px;
+    padding: 7px 0 7px 15px;
+    color: var(--flow-muted);
+  }
+  #rail .guide-journey[data-flow] .guide-step-number { display: none; }
+  #rail .guide-journey[data-flow] .guide-step-copy { display: block; }
+  #rail .guide-journey[data-flow] .flow-step-label {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    color: var(--flow-muted);
+    text-align: left;
+  }
+  #rail .guide-journey[data-flow] .flow-step-label b {
+    color: inherit;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  #rail .guide-journey[data-flow][data-flow-ready] .flow-step-label b {
+    transition: color 150ms ease;
+  }
+  #rail .guide-journey[data-flow] li[data-open] .flow-step-label {
+    color: var(--flow-ink);
+  }
+  #rail .guide-journey[data-flow] .flow-step-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  #rail .guide-journey[data-flow][data-flow-ready] .flow-step-panel {
+    transition:
+      grid-template-rows 280ms cubic-bezier(.65, 0, .35, 1),
+      opacity 140ms ease,
+      transform 220ms cubic-bezier(.32, .72, 0, 1);
+  }
+  #rail .guide-journey[data-flow] li[data-open] .flow-step-panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #rail .guide-journey[data-flow][data-flow-ready] li[data-open] .flow-step-panel {
+    transition:
+      grid-template-rows 280ms cubic-bezier(.65, 0, .35, 1),
+      opacity 200ms 35ms ease-out,
+      transform 250ms cubic-bezier(.32, .72, 0, 1);
+  }
+  #rail .guide-journey[data-flow] .flow-step-panel-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+  #rail .guide-journey[data-flow] .flow-step-panel small {
+    display: block;
+    margin-top: 5px;
+    color: var(--flow-muted);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  #rail .guide-journey[data-flow] .flow-step-panel em {
+    display: block;
+    margin-top: 8px;
+    color: var(--flow-ink);
+    font-size: 11px;
+    line-height: 1.4;
+    font-style: normal;
+  }
+  #rail .guide-journey[data-flow] progress { margin-bottom: 23px; }
+}
+
+@media (max-width: 900px) {
+  #rail .guide-journey[data-flow] li[data-open] { padding-left: 0; }
+  #rail .guide-journey[data-flow] li[data-open] .flow-step-line { display: none; }
+  #rail .guide-journey[data-flow] .flow-step-label,
+  #rail .guide-journey[data-flow] .flow-step-panel,
+  #rail .guide-journey[data-flow] .flow-step-panel small { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #rail .guide-journey[data-flow] .flow-step-label b,
+  #rail .guide-journey[data-flow] .flow-step-panel,
+  #rail .guide-journey[data-flow][data-flow-ready] .flow-step-label b,
+  #rail .guide-journey[data-flow][data-flow-ready] .flow-step-panel,
+  #rail .guide-journey[data-flow][data-flow-ready] li[data-open] .flow-step-panel {
+    transition: none;
+  }
+}
